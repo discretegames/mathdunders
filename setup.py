@@ -1,5 +1,4 @@
 from distutils.core import setup
-from os import read
 
 VERSION = "0.1"
 
@@ -14,5 +13,5 @@ setup(
     url='https://github.com/discretegames/mathdunders',
     packages=['mathdunders'],
     license="MIT License",
-    keywords=['python', 'math', 'mathematics', 'video stream', 'camera stream', 'sockets'],
+    keywords=['python', 'math', 'mathematics', 'dunder', 'double under', 'underscore', 'magic method', 'number'],
 )

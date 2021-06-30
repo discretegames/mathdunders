@@ -1,2 +1,2 @@
-__all__ = "unary binary mathdunders".split()
-from mathdunders.mathdunders import unary, binary, mathdunders
+__all__ = ["dunders", "mathdunders"]
+from mathdunders.mathdunders import dunders, mathdunders
