@@ -36,8 +36,7 @@ def mathdunders(base=None, force=False):
 
 # TODO
 # Readme
-# License
-# Finish tests
+# Finish tests, test decimal, int, complex as well
 # Run tests from this file if main?
 # __init__py
 # setup.py
