@@ -1,6 +1,6 @@
 from distutils.core import setup
 
-VERSION = "0.1"
+VERSION = "0.2"
 
 setup(
     name='mathdunders',
@@ -11,7 +11,7 @@ setup(
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     url='https://github.com/discretegames/mathdunders',
-    packages=['mathdunders'],
+    py_modules=['mathdunders'],
     license="MIT License",
     keywords=['python', 'math', 'mathematics', 'dunder', 'double under', 'underscore', 'magic method', 'number'],
 )
