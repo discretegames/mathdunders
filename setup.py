@@ -13,5 +13,6 @@ setup(
     long_description_content_type="text/markdown",
     url='https://github.com/discretegames/mathdunders',
     packages=['mathdunders'],
-    license="MIT License"
+    license="MIT License",
+    keywords=['python', 'math', 'mathematics', 'video stream', 'camera stream', 'sockets'],
 )

@@ -33,13 +33,3 @@ def mathdunders(base=None, force=False):
 
         return cls
     return decorator
-
-# TODO
-# Readme
-# Finish tests, test decimal, int, complex as well
-# Run tests from this file if main?
-# __init__py
-# setup.py
-# Test in various Python versions
-# Github repo
-# upload to PyPI

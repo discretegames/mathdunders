@@ -1,4 +1,3 @@
-from typing import List
 from mathdunders import mathdunders, unary, binary
 import unittest
 from math import ceil, floor, trunc

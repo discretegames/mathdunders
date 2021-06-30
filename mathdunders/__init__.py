@@ -1,3 +1,2 @@
-from mathdunders.mathdunders import binary
-from mathdunders.mathdunders import unary
-from mathdunders.mathdunders import mathdunders
+__all__ = "unary binary mathdunders".split()
+from mathdunders.mathdunders import unary, binary, mathdunders
