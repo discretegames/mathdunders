@@ -1,10 +1,10 @@
 from typing import List
-from math_dunders import math_dunders, unary, binary
+from mathdunders import mathdunders, unary, binary
 import unittest
 from math import ceil, floor, trunc
 
 
-@math_dunders()
+@mathdunders()
 class r(float):
     """Represents a real number."""
 
@@ -115,7 +115,7 @@ class TestMathDunders(unittest.TestCase):
         self.check(r(0) + r(0), 0)
         self.check(r(1) + 1, 2)
         self.check(r(1) + 1.0, 2)
-        self.check(r(1) + r(1), 7)
+        self.check(r(1) + r(1), 2)
         # self.check(1 + r(1), 2, float)
         # self.check(r(1).__radd__(9), 10, float)
 
@@ -151,7 +151,7 @@ def test():
 if __name__ == "__main__":
     print(8 + r())
 
-    # test()
+    test()
 
 
 # todo test force

@@ -1,6 +1,6 @@
 def dunderize(names):
-    """Adds underscores to every string in the list, returning a new list."""
-    return [f"__{name}__" for name in names]
+    """Adds underscores to every string names, returning a tuple."""
+    return tuple(f"__{name}__" for name in names)
 
 
 unary = dunderize("abs ceil floor neg pos round trunc".split())
@@ -8,7 +8,7 @@ binary = "add divmod floordiv mod mul pow sub truediv".split()
 binary = dunderize(binary + [f"r{name}" for name in binary])
 
 
-def math_dunders(base=None, force=False):
+def mathdunders(base=None, force=False):
     """Class decorator that adds mathematical dunder methods."""
 
     def decorator(cls):
