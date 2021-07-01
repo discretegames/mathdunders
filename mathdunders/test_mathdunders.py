@@ -60,29 +60,6 @@ class TestMathDunders(unittest.TestCase):
         self.check(r(9) < r(10), True, bool)
         self.check(r(90) >= r(10), True, bool)
 
-    def test_base(self):
-        @mathdunders(float)
-        class b(float):
-            pass
-        self.check(float(b(1.1)), 1.1, float)
-        self.check(int(b(1)), 1, int)
-        self.check(b(9) + 8, 17, b)
-        self.check(8 + b(9), 17, b)
-        self.check(b(8) + b(9), 17, b)
-
-        class p:
-            pass
-        
-        @mathdunders()
-        class s1(p, float):
-            pass
-
-        @mathdunders()
-        class s2(float, p):
-            pass
-        self.check(s1(1) + s1(2), 3, float)
-        self.check(s2(1) + s2(2), 3, s2)
-
     def test_int(self):
         @mathdunders()
         class i(int):
@@ -141,6 +118,29 @@ class TestMathDunders(unittest.TestCase):
 
         self.check(f(4) + g(6), 10, f)
         self.check(g(4) + f(6), 1234, int)
+
+    def test_base(self):
+        @mathdunders(float)
+        class b(float):
+            pass
+        self.check(float(b(1.1)), 1.1, float)
+        self.check(int(b(1)), 1, int)
+        self.check(b(9) + 8, 17, b)
+        self.check(8 + b(9), 17, b)
+        self.check(b(8) + b(9), 17, b)
+
+        class p:
+            pass
+
+        @mathdunders()
+        class c(float, p):
+            pass
+        self.check(c(1) + c(2), 3, c)
+
+        with self.assertRaises(Exception):
+            @mathdunders()
+            class e(p, float):
+                pass
 
     # Unary Dunder Tests:
 
