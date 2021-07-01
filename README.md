@@ -1,5 +1,8 @@
 # mathdunders
-Python decorator to add math dunders to a class derived from a numeric type.
+
+A Python class decorator that adds math dunder methods to  
+
+Python decorator  add math dunders to a class derived from a numeric type.
 
 *In development.*
 # TODO

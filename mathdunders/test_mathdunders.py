@@ -1,3 +1,4 @@
+import math
 import unittest
 from decimal import Decimal
 from math import ceil, floor, trunc
@@ -68,6 +69,19 @@ class TestMathDunders(unittest.TestCase):
         self.check(b(9) + 8, 17, b)
         self.check(8 + b(9), 17, b)
         self.check(b(8) + b(9), 17, b)
+
+        class p:
+            pass
+        
+        @mathdunders()
+        class s1(p, float):
+            pass
+
+        @mathdunders()
+        class s2(float, p):
+            pass
+        self.check(s1(1) + s1(2), 3, float)
+        self.check(s2(1) + s2(2), 3, s2)
 
     def test_int(self):
         @mathdunders()
