@@ -1,11 +1,11 @@
 from os import path
 from distutils.core import setup
 
-version = "0.2.2"
+version = "0.2.3"
 
-folder = path.abspath(path.dirname(__file__))
-with open(path.join(folder, 'README.md'), encoding='utf-8') as f:
-    long_description = f.read()
+long_description = """
+TODO - write long description
+"""
 
 setup(
     name='mathdunders',
