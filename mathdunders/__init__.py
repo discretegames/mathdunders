@@ -1,2 +1,2 @@
-__all__ = ["dunders", "mathdunders"]
+__all__ = "dunders mathdunders".split()
 from mathdunders.mathdunders import dunders, mathdunders
