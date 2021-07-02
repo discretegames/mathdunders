@@ -2,7 +2,7 @@
 
 **A Python decorator that automatically adds math-related dunder methods to a class derived from a numeric type.**
 
-Useful when you want operations on that class to remain the same type but don't want to manually write all the dunders..
+Useful when you want operations on that class to remain the same type but don't want to manually write all the dunders.
 
 Think of it in the same vein as [@functools.total_ordering](https://docs.python.org/3/library/functools.html#functools.total_ordering).
 
@@ -12,7 +12,7 @@ Think of it in the same vein as [@functools.total_ordering](https://docs.python.
 pip install mathdunders
 ```
 
-[View on PyPI](https://pypi.org/project/mathdunders/)
+[View on PyPI](https://pypi.org/project/mathdunders/) - [View on GitHub](https://github.com/discretegames/mathdunders)
 
 ## Usage
 
@@ -57,7 +57,7 @@ class RealNumber(float):
 
 `@mathdunders()` adds 23 "magic" double-underscore (dunder) methods to the class it decorates:
 
-```py
+```text
 Dunder           Trigger
 __abs__          abs(x)
 __ceil__         math.ceil(x)
