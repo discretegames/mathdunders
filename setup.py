@@ -1,3 +1,4 @@
+import setuptools
 from os import path
 from distutils.core import setup
 
@@ -32,5 +33,5 @@ setup(
     url='https://github.com/discretegames/mathdunders',
     py_modules=['mathdunders'],
     license="MIT License",
-    keywords=['python', 'math', 'mathematics', 'dunder', 'double under', 'underscore', 'magic method', 'number'],
+    keywords=['python', 'math', 'mathematics', 'dunder', 'double under', 'underscore', 'magic method', 'number']
 )
