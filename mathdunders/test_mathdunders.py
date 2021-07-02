@@ -60,6 +60,21 @@ class TestMathDunders(unittest.TestCase):
         self.check(r(9) < r(10), True, bool)
         self.check(r(90) >= r(10), True, bool)
 
+    def test_i(self):
+        x = r(1)
+        x += 1
+        self.check(x, 2)
+        x **= 3
+        self.check(x, 8.0)
+        x //= 4
+        self.check(x, 2)
+        x /= .125
+        self.check(x, 16)
+        x -= 100
+        self.check(x, -84)
+        x %= 10
+        self.check(x, 6)
+
     def test_int(self):
         @mathdunders()
         class i(int):
@@ -262,6 +277,16 @@ class TestMathDunders(unittest.TestCase):
         self.check(2 ** r(3), 8)
         self.check(r(2) ** r(3), 8)
         self.check(r(0)**0, 1)
+
+        @mathdunders()
+        class i(int):
+            pass
+
+        self.check(pow(i(2), 10, 100), 24, i)
+        self.check(pow(i(2), i(10), 100), 24, i)
+        self.check(pow(i(2), i(10), i(100)), 24, i)
+        self.check(pow(2, i(10)), 1024, i)
+        self.check(pow(2, i(10), 100), 24, int)  # not exactly sure why int instead of i
 
     def test_sub(self):
         self.check(r(5) - 7, -2)
