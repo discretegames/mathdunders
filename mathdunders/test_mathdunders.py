@@ -1,5 +1,6 @@
 import unittest
 from decimal import Decimal
+from fractions import Fraction
 from math import ceil, floor, trunc
 from mathdunders import mathdunders, dunders
 
@@ -87,6 +88,13 @@ class TestMathDunders(unittest.TestCase):
         self.check(c(2+4j) * (1+2j), -6+8j, c)
         self.check((2+4j) * c(1+2j), -6+8j, c)
         self.check(c(2+4j) * c(1+2j), -6+8j, c)
+
+    def test_rational(self):
+        @mathdunders()
+        class f(Fraction):
+            pass
+        self.check(f(1, 2) + f(3, 2), 2, f)
+        self.check(0 - f(10) - f() - 1, -11, f)
 
     def test_force(self):
         @mathdunders(force=True)
