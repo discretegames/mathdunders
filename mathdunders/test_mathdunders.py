@@ -129,13 +129,27 @@ class TestMathDunders(unittest.TestCase):
         self.check(8 + b(9), 17, b)
         self.check(b(8) + b(9), 17, b)
 
+    def test_multibase(self):
         class p:
             pass
 
         @mathdunders()
-        class c(float, p):
+        class b(float, p):
             pass
-        self.check(c(1) + c(2), 3, c)
+        self.check(float(b(1.1)), 1.1, float)
+        self.check(int(b(1)), 1, int)
+        self.check(b(9) + 8, 17, b)
+        self.check(8 + b(9), 17, b)
+        self.check(b(8) + b(9), 17, b)
+
+        @mathdunders(base=float)
+        class b(p, float):
+            pass
+        self.check(float(b(1.1)), 1.1, float)
+        self.check(int(b(1)), 1, int)
+        self.check(b(9) + 8, 17, b)
+        self.check(8 + b(9), 17, b)
+        self.check(b(8) + b(9), 17, b)
 
         with self.assertRaises(Exception):
             @mathdunders()
