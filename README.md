@@ -14,6 +14,8 @@ pip install mathdunders
 
 [View on PyPI](https://pypi.org/project/mathdunders/) - [View on GitHub](https://github.com/discretegames/mathdunders)
 
+This package was built in Python 3.9.4 and tested to work in 3.6.8+.
+
 ## Usage
 
 Import and put `@mathdunders()` above your class:
@@ -88,8 +90,10 @@ __rtruediv__     3 / x
 
 ```py
 from mathdunders import dunders
-print(dunders)  # -> ('__abs__', '__ceil__', '__floor__', ...
+print(dunders)  # -> ('__abs__', '__ceil__', '__floor__', '__neg__', ...
 ```
+
+Note: `__ceil__` and `__floor__` are unimplemented for floats in Python versions before 3.9.
 
 ## Advanced Usage
 

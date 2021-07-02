@@ -51,7 +51,7 @@ class TestMathDunders(unittest.TestCase):
 
     def test_casts(self):
         self.check(str(r(-64)), "-64.0", str)
-        self.check(f"{r(5):.03f}", "5.000", str)
+        #self.check(f"{r(5):.03f}", "5.000", str)
         self.check(int(r(-50)), -50, int)
         self.check(float(r(9.8)), 9.8, float)
         self.check(bool(r()), False, bool)
@@ -185,11 +185,11 @@ class TestMathDunders(unittest.TestCase):
         self.check(abs(r(4)), 4)
         self.check(abs(r(-4)), 4)
 
-    def test_ceil(self):
+    def test_ceil(self): # Will fail in < 3.9.
         self.check(ceil(r(1.5)), 2)
         self.check(ceil(r(-1.5)), -1)
 
-    def test_floor(self):
+    def test_floor(self): # Will fail in < 3.9.
         self.check(floor(r(1.5)), 1)
         self.check(floor(r(-1.5)), -2)
 
