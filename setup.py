@@ -1,10 +1,25 @@
 from os import path
 from distutils.core import setup
 
-version = "0.2.3"
+version = "0.2.4"
 
 long_description = """
-TODO - write long description
+mathdunders provides a Python 3 decorator that automatically adds 23 math-related dunder methods to a class derived from a numeric type.
+
+Installation:
+
+pip install mathdunders
+
+Usage:
+
+from mathdunders import mathdunders
+
+@mathdunders()
+class RealNumber(float):
+    pass
+
+x = RealNumber(1) + RealNumber(2)
+print(x, type(x))  # -> 3 <class '__main__.RealNumber'>
 """
 
 setup(
@@ -14,7 +29,6 @@ setup(
     author_email='discretizedgames@gmail.com',
     description="Decorator that adds math dunders to a class derived from a numeric type.",
     long_description=long_description,
-    long_description_content_type="text/markdown",
     url='https://github.com/discretegames/mathdunders',
     py_modules=['mathdunders'],
     license="MIT License",
