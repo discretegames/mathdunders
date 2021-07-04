@@ -5,7 +5,7 @@ on:
     branches:
       - main
     tags:
-      - "t*"#"v*.*.*"
+      - "t*" #"v*.*.*"
 
 jobs:
   publish:
