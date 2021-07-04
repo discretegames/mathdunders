@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - "t*"#"v*.*.*"
 
 jobs:
   publish:
@@ -28,7 +30,7 @@ jobs:
       #     password: ${{ secrets.TEST_PYPI_API_TOKEN }}
       #     repository_url: https://test.pypi.org/legacy/
       - name: Upload to PyPI
-        run: echo "${{github.ref}}"
+        run: echo "${{github.ref}}" # resolved to echo "refs/heads/main"
         # if: startsWith(github.ref, 'refs/tags') not working, wtf
         # uses: pypa/gh-action-pypi-publish@release/v1
         # with:
