@@ -1,4 +1,4 @@
-"""This module provides a decororator that automatically adds math dunder methods to a class."""
+"""Provides a decororator that automatically adds math dunder methods to a class."""
 
 unary = "abs ceil floor neg pos round trunc".split()
 binary = "add divmod floordiv mod mul pow sub truediv".split()
