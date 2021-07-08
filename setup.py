@@ -12,7 +12,7 @@ setup(
     version=version,
     author='discretegames',
     author_email='discretizedgames@gmail.com',
-    description="Decorator that adds math dunders to a class derived from a numeric type.",
+    description="Decorator that automatically adds math dunders to a class.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/discretegames/mathdunders',

@@ -1,11 +1,13 @@
+"""This module provides a decororator that automatically adds math dunder methods to a class."""
+
 unary = "abs ceil floor neg pos round trunc".split()
 binary = "add divmod floordiv mod mul pow sub truediv".split()
 binary = binary + [f"r{name}" for name in binary]
 dunders = tuple(f"__{name}__" for name in unary + binary)
 
 
-def mathdunders(base=None, force=False):
-    """Decorator that add math dunders to a class derived from a numeric base type."""
+def mathdunders(base=None, dunders=dunders, force=False):
+    """Decorator that automatically adds math dunders to a class."""
 
     def decorator(cls):
         nonlocal base

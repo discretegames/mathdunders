@@ -93,11 +93,15 @@ from mathdunders import dunders
 print(dunders)  # -> ('__abs__', '__ceil__', '__floor__', '__neg__', ...
 ```
 
-Note: `__ceil__` and `__floor__` are unimplemented for floats in Python versions before 3.9.
+Comparison operators are omitted because it doesn't make sense for them to return the decorated type.
+
+Bitwise operators are omitted because they are not well defined for many numeric types, e.g. floats.
+
+Note that `__ceil__` and `__floor__` are unimplemented for floats in Python versions before 3.9.
 
 ## Advanced Usage
 
-If the numeric type such as `float`, `int`, or `Decimal` is not the first base class, use the optional `base` parameter to specify the numeric type.
+If the base type such as `float`, `int`, or `Decimal` is not the first base class, use the optional `base` parameter to specify it.
 
 ```py
 from mathdunders import mathdunders
@@ -112,7 +116,31 @@ class Int(Parent, int):
 print(Int(10) / Int(2))  # -> 5
 ```
 
-By default dunders are not inserted if the class already defines them. `force=True` can be used to override this.
+---
+
+If you wish to supply a custom set of dunders you may use the optional `dunders` parameter.
+
+```py
+from mathdunders import mathdunders, dunders
+
+extras = ('__and__', '__lshift__')
+@mathdunders(dunders=dunders + extras)
+class Int(int):
+    pass
+
+a = Int(2) & Int(3)
+print(a, type(a))  # -> 2 <class '__main__.Int'>
+
+b = Int(2) | Int(3)
+print(b, type(b))  # -> 3 <class 'int'>
+
+c = Int(1) << 4
+print(c, type(c))  # -> 16 <class '__main__.Int'>
+```
+
+---
+
+By default dunders are not inserted if the class already defines them. Set the optional parameter `force` to `True` to override this.
 
 ```py
 from mathdunders import mathdunders
@@ -133,3 +161,5 @@ class B(float):
 b = abs(B(-1))
 print(b, type(b))  # -> 1.0 <class '__main__.B'>
 ```
+
+---

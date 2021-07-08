@@ -1,3 +1,5 @@
+"""Test suite for mathdunders.py."""
+
 import unittest
 from decimal import Decimal
 from fractions import Fraction
@@ -51,7 +53,7 @@ class TestMathDunders(unittest.TestCase):
 
     def test_casts(self):
         self.check(str(r(-64)), "-64.0", str)
-        #self.check(f"{r(5):.03f}", "5.000", str)
+        self.check(f"{r(5):.03f}", "5.000", str)
         self.check(int(r(-50)), -50, int)
         self.check(float(r(9.8)), 9.8, float)
         self.check(bool(r()), False, bool)
@@ -178,6 +180,22 @@ class TestMathDunders(unittest.TestCase):
             class e(p, float):
                 pass
 
+    def test_custom_dunders(self):
+        @mathdunders(dunders=['__add__', '__and__'])
+        class d(int):
+            pass
+        self.check(d(4) + d(5), 9, d)
+        self.check(d(4) + 5, 9, d)
+        self.check(4 + d(5), 9, int)
+
+        self.check(d(7) - d(9), -2, int)
+        self.check(d(7) - 9, -2, int)
+        self.check(7 - d(9), -2, int)
+
+        self.check(d(2) & d(3), 2, d)
+        self.check(d(2) & 3, 2, d)
+        self.check(2 & d(3), 2, int)
+
     # Unary Dunder Tests:
 
     def test_abs(self):
@@ -185,11 +203,11 @@ class TestMathDunders(unittest.TestCase):
         self.check(abs(r(4)), 4)
         self.check(abs(r(-4)), 4)
 
-    def test_ceil(self): # Will fail in < 3.9.
+    def test_ceil(self):  # Will fail in < 3.9.
         self.check(ceil(r(1.5)), 2)
         self.check(ceil(r(-1.5)), -1)
 
-    def test_floor(self): # Will fail in < 3.9.
+    def test_floor(self):  # Will fail in < 3.9.
         self.check(floor(r(1.5)), 1)
         self.check(floor(r(-1.5)), -2)
 
