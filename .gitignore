@@ -5,3 +5,4 @@ __pycache__/
 mathdunders.egg-info/
 dist/
 build/
+.idea/

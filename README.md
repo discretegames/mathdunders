@@ -12,7 +12,7 @@ Think of it in the same vein as [@functools.total_ordering](https://docs.python.
 pip install mathdunders
 ```
 
-[View on PyPI](https://pypi.org/project/mathdunders/) - [View on GitHub](https://github.com/discretegames/mathdunders)
+[View on PyPI](https://pypi.org/project/mathdunders) - [View on GitHub](https://github.com/discretegames/mathdunders)
 
 This package was built in Python 3.9.4 and tested to work in 3.6.8+.
 
@@ -52,7 +52,7 @@ class RealNumber(float):
     def __rsub__(self, other):
         return RealNumber(other - float(self))
 
-    # ... plus 20 other similar boilerplate dunder methods ...
+    # ... plus 20 other similar boilerplate dunder methods
 ```
 
 ## Supported Dunders
@@ -101,6 +101,10 @@ Note that `__ceil__` and `__floor__` are unimplemented for floats in Python vers
 
 ## Advanced Usage
 
+---
+
+### With Multiple Inheritance
+
 If the base type such as `float`, `int`, or `Decimal` is not the first base class, use the optional `base` parameter to specify it.
 
 ```py
@@ -118,27 +122,7 @@ print(Int(10) / Int(2))  # -> 5
 
 ---
 
-If you wish to supply a custom set of dunders you may use the optional `dunders` parameter.
-
-```py
-from mathdunders import mathdunders, dunders
-
-extras = ('__and__', '__lshift__')
-@mathdunders(dunders=dunders + extras)
-class Int(int):
-    pass
-
-a = Int(2) & Int(3)
-print(a, type(a))  # -> 2 <class '__main__.Int'>
-
-b = Int(2) | Int(3)
-print(b, type(b))  # -> 3 <class 'int'>
-
-c = Int(1) << 4
-print(c, type(c))  # -> 16 <class '__main__.Int'>
-```
-
----
+### Overwrite Existing Dunders
 
 By default dunders are not inserted if the class already defines them. Set the optional parameter `force` to `True` to override this.
 
@@ -160,6 +144,30 @@ class B(float):
 
 b = abs(B(-1))
 print(b, type(b))  # -> 1.0 <class '__main__.B'>
+```
+
+---
+
+### Supplying Custom Dunders
+
+If you wish to supply a custom set of dunders you may use the optional `dunders` parameter.
+
+```py
+from mathdunders import mathdunders, dunders
+
+extras = ('__and__', '__lshift__')
+@mathdunders(dunders=dunders + extras)
+class Int(int):
+    pass
+
+a = Int(2) & Int(3)
+print(a, type(a))  # -> 2 <class '__main__.Int'>
+
+b = Int(2) | Int(3)
+print(b, type(b))  # -> 3 <class 'int'>
+
+c = Int(1) << 4
+print(c, type(c))  # -> 16 <class '__main__.Int'>
 ```
 
 ---

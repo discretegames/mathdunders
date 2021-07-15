@@ -1,7 +1,7 @@
 from os import path
 from setuptools import setup
 
-version = "0.4.1"
+version = "0.4.2"
 
 directory = path.abspath(path.dirname(__file__))
 with open(path.join(directory, 'README.md'), encoding='utf-8') as file:
@@ -18,5 +18,13 @@ setup(
     url='https://github.com/discretegames/mathdunders',
     packages=['mathdunders'],
     license="MIT",
-    keywords=['python', 'math', 'mathematics', 'dunder', 'double under', 'underscore', 'magic method', 'number']
+    keywords=['python', 'math', 'mathematics', 'dunder', 'double under', 'underscore', 'magic method', 'number'],
+    classifiers=[
+        "Development Status :: 5 - Production/Stable",
+        "Intended Audience :: Developers",
+        "Topic :: Scientific/Engineering :: Mathematics",
+        "Topic :: Utilities",
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3",
+    ]
 )
